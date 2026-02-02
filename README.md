@@ -248,7 +248,7 @@ Ejercicios:
 - Escribe una regla "longitud" que dada una lista, calcule su longitud.
 - Escribe una regla "concatena" que dadas dos listas, las concatene en otra.
 - Escribe una regla que permite obtener en una lista los N elementos de las serie de fibonacci, usa la regla predifina append(L1,L2,L3), que concatena L1 y L2, en L3.
-- Escribe uan regla que determine el reverso de una lista.
+- Escribe una regla que determine el reverso de una lista.
 - Escribe una regla que determine si una lista es palindroma.
 
 
