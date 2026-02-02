@@ -18,7 +18,7 @@ nota(maria, 3.7).
 nota(juan, 5.0).
 nota(pedro, 2.3).
 
-reprueba(X):-nota(X,Y),Y>=3.0.
+aprueba(X):-nota(X,Y),Y>=3.0.
 
 #3)
 
@@ -59,3 +59,4 @@ nota(juan, 5.0).
 nota(pedro, 2.3).
 
 distancia((X1, Y1), (X2, Y2), D) :- D is sqrt((X2 - X1)**2 + (Y2 - Y1)**2).
+
