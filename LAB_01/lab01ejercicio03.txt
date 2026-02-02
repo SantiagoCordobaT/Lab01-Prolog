@@ -1,0 +1,61 @@
+#1)
+
+% Hechos: estudiante y su nota final en un curso
+nota(ana, 4.5).
+nota(luis, 2.8).
+nota(maria, 3.7).
+nota(juan, 5.0).
+nota(pedro, 2.3).
+
+reprueba(X):-nota(X,Y),Y<3.0.
+
+#2)
+
+% Hechos: estudiante y su nota final en un curso
+nota(ana, 4.5).
+nota(luis, 2.8).
+nota(maria, 3.7).
+nota(juan, 5.0).
+nota(pedro, 2.3).
+
+reprueba(X):-nota(X,Y),Y>=3.0.
+
+#3)
+
+% Hechos: estudiante y su nota final en un curso
+nota(ana, 4.5).
+nota(luis, 2.8).
+nota(maria, 3.7).
+nota(juan, 5.0).
+nota(pedro, 2.3).
+
+rango(X,Min,Max):- nota(X,Y), Y>Min, Y<Max.
+
+#4)
+
+% Hechos: estudiante y su nota final en un curso
+nota(ana, 4.5).
+nota(luis, 2.8).
+nota(maria, 3.7).
+nota(juan, 5.0).
+nota(pedro, 2.3).
+
+reprobado(X):-nota(X,Y),Y<2.9.
+aprobado(X):-nota(X,Y),Y>3.0,Y<3.9.
+notable(X):-nota(X,Y),Y>4.0,Y<4.4.
+excelente(X):-nota(X,Y),Y>4.5,Y<5.0.
+clasificacion(X):- reprobado(X).
+clasificacion(X):- aprobado(X).
+clasificacion(X):- notable(X).
+clasificacion(X):- excelente(X).
+
+#5)
+
+% Hechos: estudiante y su nota final en un curso
+nota(ana, 4.5).
+nota(luis, 2.8).
+nota(maria, 3.7).
+nota(juan, 5.0).
+nota(pedro, 2.3).
+
+distancia((X1, Y1), (X2, Y2), D) :- D is sqrt((X2 - X1)**2 + (Y2 - Y1)**2).

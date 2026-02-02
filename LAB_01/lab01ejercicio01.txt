@@ -1,0 +1,95 @@
+#1)
+
+% Hechos: relación entre ciudades
+ciudad(bogota).
+ciudad(medellin).
+ciudad(cali).
+ciudad(cartagena).
+ciudad(manizales).
+ciudad(barranquilla).
+ciudad(pasto).
+ciudad(monteria).
+
+% Hechos: vuelos directos
+vuelo(bogota, medellin).
+vuelo(medellin, cartagena).
+vuelo(cali, bogota).
+vuelo(bogota, cartagena).
+vuelo(manizales, cartagena).
+vuelo(medellin, barranquilla).
+vuelo(pasto, bogota).
+vuelo(bogota, pasto).
+
+vuelodirecto(X, Y) :- ciudad(X), ciudad(Y), vuelo(X, Y).
+
+#2)
+
+% Hechos: relación entre ciudades
+ciudad(bogota).
+ciudad(medellin).
+ciudad(cali).
+ciudad(cartagena).
+ciudad(manizales).
+ciudad(barranquilla).
+ciudad(pasto).
+ciudad(monteria).
+
+% Hechos: vuelos directos
+vuelo(bogota, medellin).
+vuelo(medellin, cartagena).
+vuelo(cali, bogota).
+vuelo(bogota, cartagena).
+vuelo(manizales, cartagena).
+vuelo(medellin, barranquilla).
+vuelo(pasto, bogota).
+vuelo(bogota, pasto).
+
+desdebogota(bogota,X) :- ciudad(bogota), ciudad(X), vuelo(bogota,X). 
+
+#3)
+
+% Hechos: relación entre ciudades
+ciudad(bogota).
+ciudad(medellin).
+ciudad(cali).
+ciudad(cartagena).
+ciudad(manizales).
+ciudad(barranquilla).
+ciudad(pasto).
+ciudad(monteria).
+
+% Hechos: vuelos directos
+vuelo(bogota, medellin).
+vuelo(medellin, cartagena).
+vuelo(cali, bogota).
+vuelo(bogota, cartagena).
+vuelo(manizales, cartagena).
+vuelo(medellin, barranquilla).
+vuelo(pasto, bogota).
+vuelo(bogota, pasto).
+
+desdemedallo(X,medellin):-ciudad(X),ciudad(medellin),vuelo(X,medellin).
+
+#4)
+
+% Hechos: relación entre ciudades
+ciudad(bogota).
+ciudad(medellin).
+ciudad(cali).
+ciudad(cartagena).
+ciudad(manizales).
+ciudad(barranquilla).
+ciudad(pasto).
+ciudad(monteria).
+
+% Hechos: vuelos directos
+vuelo(bogota, medellin).
+vuelo(medellin, cartagena).
+vuelo(cali, bogota).
+vuelo(bogota, cartagena).
+vuelo(manizales, cartagena).
+vuelo(medellin, barranquilla).
+vuelo(pasto, bogota).
+vuelo(bogota, pasto).
+
+directocali(X,cali):-ciudad(X), ciudad(cali), vuelo(X,cali).

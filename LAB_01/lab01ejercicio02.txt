@@ -1,0 +1,242 @@
+#1)
+
+% Hechos: relación entre ciudades
+ciudad(bogota).
+ciudad(medellin).
+ciudad(cali).
+ciudad(cartagena).
+ciudad(manizales).
+ciudad(barranquilla).
+ciudad(pasto).
+ciudad(monteria).
+
+% Hechos: vuelos directos
+vuelo(bogota, medellin).
+vuelo(medellin, cartagena).
+vuelo(cali, bogota).
+vuelo(bogota, cartagena).
+vuelo(manizales, cartagena).
+vuelo(medellin, barranquilla).
+vuelo(pasto, bogota).
+vuelo(bogota, pasto).
+
+conectescala(X,Y):-ciudad(X),ciudad(Y),vuelo(X,Z),vuelo(Z,Y).
+
+conectescala(bogota,barranquilla).
+
+#2)
+
+% Hechos: relación entre ciudades
+ciudad(bogota).
+ciudad(medellin).
+ciudad(cali).
+ciudad(cartagena).
+ciudad(manizales).
+ciudad(barranquilla).
+ciudad(pasto).
+ciudad(monteria).
+
+% Hechos: vuelos directos
+vuelo(bogota, medellin).
+vuelo(medellin, cartagena).
+vuelo(cali, bogota).
+vuelo(bogota, cartagena).
+vuelo(manizales, Cartagena).
+vuelo(medellin, barranquilla).
+vuelo(pasto, bogota).
+vuelo(bogota, pasto).
+
+conectescala(cali,Y,Z):-ciudad(cali),ciudad(Y),vuelo(cali,Z),vuelo(Z,Y).
+
+#3)
+
+% Hechos: relación entre ciudades
+ciudad(bogota).
+ciudad(medellin).
+ciudad(cali).
+ciudad(cartagena).
+ciudad(manizales).
+ciudad(barranquilla).
+ciudad(pasto).
+ciudad(monteria).
+
+% Hechos: vuelos directos
+vuelo(bogota, medellin).
+vuelo(medellin, cartagena).
+vuelo(cali, bogota).
+vuelo(bogota, cartagena).
+vuelo(manizales, cartagena).
+vuelo(medellin, barranquilla).
+vuelo(pasto, bogota).
+vuelo(bogota, pasto).
+
+viaje(X,Y) :- ciudad(X), ciudad(Y), (vuelo(X,Y) ; (vuelo(X,Z), vuelo(Z,Y))).
+
+viaje(bogota,pasto).
+
+#4)
+
+% Hechos: relación entre ciudades
+ciudad(bogota).
+ciudad(medellin).
+ciudad(cali).
+ciudad(cartagena).
+ciudad(manizales).
+ciudad(barranquilla).
+ciudad(pasto).
+ciudad(monteria).
+
+% Hechos: vuelos directos
+vuelo(bogota, medellin).
+vuelo(medellin, cartagena).
+vuelo(cali, bogota).
+vuelo(bogota, cartagena).
+vuelo(manizales, cartagena).
+vuelo(medellin, barranquilla).
+vuelo(pasto, bogota).
+vuelo(bogota, pasto).
+
+destinos(X,Y) :- ciudad(X), ciudad(Y), (vuelo(X,Y) ; (vuelo(X,Z), vuelo(Z,Y))).
+
+#5) Cambio de base de datos.
+
+perro(firulais).
+perro(bruno).
+perro(max).
+gato(misu).
+gato(luna).
+gato(chanel).
+gato(orion).
+ave(piolin).
+
+dueno(ana, firulais).
+dueno(ana, misu).
+dueno(luis, luna).
+dueno(luis, orion).
+dueno(luis, firulais).
+dueno(maria, piolin).
+dueno(julia, chanel).
+dueno(pedro, bruno).
+
+quientieneperro(X,Y):-perro(Y),dueno(X,Y).
+
+quientieneperro(X,Y).
+
+#6)
+
+perro(firulais).
+perro(bruno).
+perro(max).
+gato(misu).
+gato(luna).
+gato(chanel).
+gato(orion).
+ave(piolin).
+
+dueno(ana, firulais).
+dueno(ana, misu).
+dueno(luis, luna).
+dueno(luis, orion).
+dueno(luis, firulais).
+dueno(maria, piolin).
+dueno(julia, chanel).
+dueno(pedro, bruno).
+
+quientienegato(X,Y):-gato(Y),dueno(X,Y).
+
+#7)
+
+perro(firulais).
+perro(bruno).
+perro(max).
+gato(misu).
+gato(luna).
+gato(chanel).
+gato(orion).
+ave(piolin).
+
+dueno(ana, firulais).
+dueno(ana, misu).
+dueno(luis, luna).
+dueno(luis, orion).
+dueno(luis, firulais).
+dueno(maria, piolin).
+dueno(julia, chanel).
+dueno(pedro, bruno).
+
+tienemascotas(X):- dueno(X,Y), dueno(X,Z), Y \= Z.
+
+#8)
+
+perro(firulais).
+perro(bruno).
+perro(max).
+gato(misu).
+gato(luna).
+gato(chanel).
+gato(orion).
+ave(piolin).
+
+dueno(ana, firulais).
+dueno(ana, misu).
+dueno(luis, luna).
+dueno(luis, orion).
+dueno(luis, firulais).
+dueno(maria, piolin).
+dueno(julia, chanel).
+dueno(pedro, bruno).
+
+amante_animales(X):- dueno(X,Y),dueno(X,Z),perro(Y),gato(Z).
+
+#9)
+
+perro(firulais).
+perro(bruno).
+perro(max).
+gato(misu).
+gato(luna).
+gato(chanel).
+gato(orion).
+ave(piolin).
+
+dueno(ana, firulais).
+dueno(ana, misu).
+dueno(luis, luna).
+dueno(luis, orion).
+dueno(luis, firulais).
+dueno(maria, piolin).
+dueno(julia, chanel).
+dueno(pedro, bruno).
+
+mascota_compartida(X,Y):- dueno(X,A),dueno(Y,A).
+
+#10)
+
+perro(firulais).
+perro(bruno).
+perro(max).
+gato(misu).
+gato(luna).
+gato(chanel).
+gato(orion).
+ave(piolin).
+
+dueno(ana, firulais).
+dueno(ana, misu).
+dueno(luis, luna).
+dueno(luis, orion).
+dueno(luis, firulais).
+dueno(maria, piolin).
+dueno(julia, chanel).
+dueno(pedro, bruno).
+
+tiene_perro(X):-dueno(X,Y),perro(Y).
+tiene_gato(X):-dueno(X,Y),gato(Y).
+tiene_ave(X):-dueno(X,Y),ave(Y).
+tipo_mascota(X,perro):-tiene_perro(X).
+tipo_mascota(X,gato):-tiene_gato(X).
+tipo_mascota(X,ave):-tiene_ave(X).
+
+
+
+
