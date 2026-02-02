@@ -60,3 +60,12 @@ nota(pedro, 2.3).
 
 distancia((X1, Y1), (X2, Y2), D) :- D is sqrt((X2 - X1)**2 + (Y2 - Y1)**2).
 
+#6)
+
+% Caso base: lista vacía o con un solo punto -> distancia 0
+distancia((X1, Y1), (X2, Y2), D) :- D is sqrt((X2 - X1)**2 + (Y2 - Y1)**2).
+distancia_total([], 0).
+distancia_total([_], 0).
+
+distancia_total([P1, P2 | Resto], Total):- distancia(P1,P2,DistanciaActual), distancia_total([P2 | Resto],DistanciaRestante), Total is DistanciaActual + DistanciaRestante.
+
